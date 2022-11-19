@@ -1,22 +1,22 @@
-var playerName = window.prompt("What is your robot's name?");
-var playerHealth = 100;
-var playerAttack = 10;
-var playerMoney = 10;
+let playerName = window.prompt("What is your robot's name?");
+let playerHealth = 100;
+let playerAttack = 10;
+let playerMoney = 10;
 
-var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
-var enemyHealth = 50;
-var enemyAttack = 12;
+let enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
+let enemyHealth = 50;
+let enemyAttack = 12;
 
 // fight function (now with parameter for enemy's name) 
-var fight = function(enemyName) {
+let fight = function(enemyName) {
   while (playerHealth > 0 && enemyHealth > 0) {
     // ask player if they'd like to fight or run
-    var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+    let promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
 
     // if player picks "skip" confirm and then stop the loop
     if (promptFight === 'skip' || promptFight === 'SKIP') { 
       // confirm player wants to skip
-      var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+      let confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
       // if yes (true), leave fight
       if (confirmSkip) {
@@ -65,21 +65,21 @@ var fight = function(enemyName) {
 }; // end of fight function
 
 // function to start a new game
-var startGame = function() {
+let startGame = function() {
   // reset player stats
   playerHealth = 100;
   playerAttack = 10;
   playerMoney = 10;
 
   // fight each enemy robot by looping over them and fighting them one at a time
-  for (var i = 0; i < enemyNames.length; i++) {
+  for (let i = 0; i < enemyNames.length; i++) {
     // if player is still alive, keep fighting
     if (playerHealth > 0) {
       // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
       window.alert('Welcome to Robot Gladiators! Round ' + (i + 1));
 
       // pick new enemy to fight based on the index of the enemyNames array
-      var pickedEnemyName = enemyNames[i];
+      let pickedEnemyName = enemyNames[i];
 
       // reset enemyHealth before starting new fight
       enemyHealth = 50;
@@ -90,7 +90,7 @@ var startGame = function() {
       // if player is still alive and we're not at the last enemy in the array
       if (playerHealth > 0 && i < enemyNames.length - 1) {
         // ask if player wants to use the store before next round
-        var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
+        let storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
       
         // if yes, take them to the store() function
         if (storeConfirm) {
@@ -110,7 +110,7 @@ var startGame = function() {
 };
 
 // function to end the entire game
-var endGame = function() {
+let endGame = function() {
   window.alert("The game has now ended. Let's see how you did!");
 
   // if player is still alive, player wins!
@@ -121,7 +121,7 @@ var endGame = function() {
   }
 
   // ask player if they'd like to play again
-  var playAgainConfirm = window.confirm('Would you like to play again?');
+  let playAgainConfirm = window.confirm('Would you like to play again?');
 
   if (playAgainConfirm) {
     startGame();
@@ -131,9 +131,9 @@ var endGame = function() {
 };
 
 // go to shop between battles function
-var shop = function() {
+let shop = function() {
   // ask player what they'd like to do
-  var shopOptionPrompt = window.prompt(
+  let shopOptionPrompt = window.prompt(
     'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
   );
 
